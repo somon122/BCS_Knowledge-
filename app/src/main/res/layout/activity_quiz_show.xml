@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mcqTest.QuizShowActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/quizToolBar_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/quizShowSpinner_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizToolBar_id" />
+
+
+    <TextView
+        android:id="@+id/showQuizQuestion_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="start"
+        android:hint="Question"
+        android:inputType="textMultiLine"
+        android:padding="5dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizShowSpinner_id" />
+
+
+    <RadioGroup
+        android:id="@+id/quizOptionGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showQuizQuestion_id"
+
+        >
+
+        <RadioButton
+            android:id="@+id/quizOption1"
+            android:hint="Data is empty"
+            android:paddingStart="5dp"
+            android:background="#EBDDDD"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="RtlSymmetry" />
+
+        <RadioButton
+            android:id="@+id/quizOption2"
+            android:hint="Data is empty"
+            android:paddingStart="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            tools:ignore="RtlSymmetry" />
+         <RadioButton
+             android:id="@+id/quizOption3"
+             android:hint="Data is empty"
+             android:paddingStart="5dp"
+             android:background="#EBDDDD"
+             android:layout_marginStart="30dp"
+             android:layout_marginEnd="20dp"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             tools:ignore="RtlSymmetry" />
+         <RadioButton
+             android:id="@+id/quizOption4"
+             android:hint="Data is empty"
+             android:paddingStart="5dp"
+             android:layout_marginStart="30dp"
+             android:layout_marginEnd="20dp"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             tools:ignore="RtlSymmetry" />
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/quizShowSubmit_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="100dp"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizOptionGroup" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "32550630590",
+    "firebase_url": "https://shortquestionapp.firebaseio.com",
+    "project_id": "shortquestionapp",
+    "storage_bucket": "shortquestionapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32550630590:android:b98172c9a1a790a7e1daef",
+        "android_client_info": {
+          "package_name": "com.worldtechpoints.bcsknowledge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32550630590-cob07vud3cqc4kqlt1eevt38upvf1065.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.worldtechpoints.bcsknowledge",
+            "certificate_hash": "b0c6e306b779532f9ed3c922761c43aa4dea3385"
+          }
+        },
+        {
+          "client_id": "32550630590-famipv28kdta639kaf6st940bg2jlb8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyjs2o9hFist-qPiRs10N9-5FC3Q6mkcc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32550630590-famipv28kdta639kaf6st940bg2jlb8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
