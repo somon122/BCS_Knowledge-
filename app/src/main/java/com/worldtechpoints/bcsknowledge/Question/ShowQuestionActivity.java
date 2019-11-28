@@ -24,6 +24,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.worldtechpoints.bcsknowledge.Category_Content;
 import com.worldtechpoints.bcsknowledge.MainActivity;
 import com.worldtechpoints.bcsknowledge.R;
 import java.util.ArrayList;
@@ -42,14 +43,17 @@ public class ShowQuestionActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private String catagory;
+    private String category;
     private Spinner spinner;
-    private List<String> catagoryValu;
+    private List<String> subCategoryValue;
     private RecyclerView recyclerView;
 
     private List<QuestionSubmit> questionList;
     private FirebaseFirestore mFireStore;
     private QuestionRecyclerView adapter;
+
+
+    private Category_Content category_content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,30 +72,58 @@ public class ShowQuestionActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         mFireStore = FirebaseFirestore.getInstance();
 
+        category_content = new Category_Content();
 
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null)
         {
-            catagory = bundle.getString("name");
-            setTitle(catagory);
+            category = bundle.getString("name");
+            setTitle(category);
 
-            if (catagory.equals("Math")){
+            if (category.equals(getString(R.string.math))) {
 
-                catagoryValu = new ArrayList<String>();
-                catagoryValu.add("pules");
-                catagoryValu.add("minus");
-                catagoryValu.add("divide");
-                catagoryValu.add("multi math");
+                subCategoryValue = category_content.math_Sub_Category();
 
+            } else if (category.equals(getString(R.string.english))) {
 
-            }else if (catagory.equals("English")){
+                subCategoryValue = category_content.english_Sub_Category();
 
-                catagoryValu = new ArrayList<String>();
-                catagoryValu.add("Tense");
-                catagoryValu.add("Narration");
-                catagoryValu.add("Voice");
-                catagoryValu.add("Vocabulary");
+            }else if (category.equals(getString(R.string.geographical))) {
+
+                subCategoryValue = category_content.geographical_Sub_Category();
+
+            }else if (category.equals(getString(R.string.mantelSkill))) {
+
+                subCategoryValue = category_content.mantalSkillSub_Category();
+
+            }else if (category.equals(getString(R.string.bangla))) {
+
+                subCategoryValue = category_content.bangla_Sub_Category();
+
+            }else if (category.equals(getString(R.string.generalScience))) {
+
+                subCategoryValue = category_content.g_science_Sub_Category();
+
+            }else if (category.equals(getString(R.string.bDKnowledge))) {
+
+                subCategoryValue = category_content.bdGK_Sub_Category();
+
+            }else if (category.equals(getString(R.string.internationalKnowledge))) {
+
+                subCategoryValue = category_content.i_GK_Sub_Category();
+
+            }else if (category.equals(getString(R.string.rules))) {
+
+                subCategoryValue = category_content.n_m_s_Sub_Category();
+
+            }else if (category.equals(getString(R.string.computer))) {
+
+                subCategoryValue = category_content.computer_Sub_Category();
+
+            }else if (category.equals(getString(R.string.recentNews))) {
+
+                subCategoryValue = category_content.recentNews_Sub_Category();
 
             }else {
 
@@ -103,7 +135,7 @@ public class ShowQuestionActivity extends AppCompatActivity {
 
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, catagoryValu);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, subCategoryValue);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(dataAdapter);
@@ -113,7 +145,7 @@ public class ShowQuestionActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 String subCategory = spinner.getSelectedItem().toString();
-                questionShowMethod(catagory,subCategory);
+                questionShowMethod(category,subCategory);
 
             }
             @Override

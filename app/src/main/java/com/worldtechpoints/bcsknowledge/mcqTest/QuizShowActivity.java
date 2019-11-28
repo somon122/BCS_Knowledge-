@@ -28,13 +28,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.worldtechpoints.bcsknowledge.MainActivity;
-import com.worldtechpoints.bcsknowledge.Question.QuestionRecyclerView;
-import com.worldtechpoints.bcsknowledge.Question.ShowQuestionActivity;
 import com.worldtechpoints.bcsknowledge.R;
+import com.worldtechpoints.bcsknowledge.Category_Content;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class QuizShowActivity extends AppCompatActivity {
@@ -59,8 +57,9 @@ public class QuizShowActivity extends AppCompatActivity {
     private Button submitButton;
     private Spinner spinner;
     private String category;
-    private List<String> catagoryValue;
+    private List<String> subCategoryValue;
     private List<QuizSubmit> quizList;
+    Category_Content category_content;
 
     private int wrongAnswer;
     private int rightAnswer;
@@ -82,7 +81,8 @@ public class QuizShowActivity extends AppCompatActivity {
 
         mFirestore = FirebaseFirestore.getInstance();
         quizList = new ArrayList<>();
-        catagoryValue = new ArrayList<>();
+        subCategoryValue = new ArrayList<>();
+        category_content = new Category_Content();
 
         radioGroup = findViewById(R.id.quizOptionGroup);
         questionTV = findViewById(R.id.showQuizQuestion_id);
@@ -102,38 +102,63 @@ public class QuizShowActivity extends AppCompatActivity {
             category = bundle.getString("name");
             setTitle(category);
 
-            if (category.equals("Math")) {
+            if (category.equals(getString(R.string.math))) {
 
-                catagoryValue = new ArrayList<String>();
-                catagoryValue.add("pules");
-                catagoryValue.add("minus");
-                catagoryValue.add("divide");
-                catagoryValue.add("multi math");
+                subCategoryValue = category_content.math_Sub_Category();
 
-            } else if (category.equals("English")) {
+            } else if (category.equals(getString(R.string.english))) {
 
-                catagoryValue = new ArrayList<String>();
-                catagoryValue.add("Narration");
-                catagoryValue.add("Tense");
-                catagoryValue.add("Voice");
-                catagoryValue.add("Vocabulary");
+                subCategoryValue = category_content.english_Sub_Category();
 
-            }else if (category.equals("SpecialModelTest")) {
+            }else if (category.equals(getString(R.string.geographical))) {
 
-                modelTest();
+                subCategoryValue = category_content.geographical_Sub_Category();
 
+            }else if (category.equals(getString(R.string.mantelSkill))) {
 
+                subCategoryValue = category_content.mantalSkillSub_Category();
 
-            } else {
+            }else if (category.equals(getString(R.string.bangla))) {
 
-                Toast.makeText(this, "No fund data!", Toast.LENGTH_SHORT).show();
+                subCategoryValue = category_content.bangla_Sub_Category();
+
+            }else if (category.equals(getString(R.string.generalScience))) {
+
+                subCategoryValue = category_content.g_science_Sub_Category();
+
+            }else if (category.equals(getString(R.string.bDKnowledge))) {
+
+                subCategoryValue = category_content.bdGK_Sub_Category();
+
+            }else if (category.equals(getString(R.string.internationalKnowledge))) {
+
+                subCategoryValue = category_content.i_GK_Sub_Category();
+
+            }else if (category.equals(getString(R.string.rules))) {
+
+                subCategoryValue = category_content.n_m_s_Sub_Category();
+
+            }else if (category.equals(getString(R.string.computer))) {
+
+                subCategoryValue = category_content.computer_Sub_Category();
+
+            }else if (category.equals(getString(R.string.recentNews))) {
+
+                subCategoryValue = category_content.recentNews_Sub_Category();
+
+            }else if (category.equals(getString(R.string.modelTest))) {
+
+                subCategoryValue = category_content.modelTest();
+
+            }else {
+                Toast.makeText(QuizShowActivity.this, "Is not massing", Toast.LENGTH_SHORT).show();
             }
 
 
         }
 
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, catagoryValue);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, subCategoryValue);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(dataAdapter);
@@ -193,28 +218,8 @@ public class QuizShowActivity extends AppCompatActivity {
         });
     }
 
-    private void modelTest() {
-
-        catagoryValue = new ArrayList<String>();
-        catagoryValue.add("Model Test No: 1");
-        catagoryValue.add("Model Test No: 2");
-        catagoryValue.add("Model Test No: 3");
-        catagoryValue.add("Model Test No: 4");
-        catagoryValue.add("Model Test No: 5");
-        catagoryValue.add("Model Test No: 6");
-        catagoryValue.add("Model Test No: 7");
-        catagoryValue.add("Model Test No: 8");
-        catagoryValue.add("Model Test No: 9");
-        catagoryValue.add("Model Test No: 10");
-        catagoryValue.add("Model Test No: 11");
-        catagoryValue.add("Model Test No: 12");
-        catagoryValue.add("Model Test No: 13");
-        catagoryValue.add("Model Test No: 14");
-        catagoryValue.add("Model Test No: 15");
 
 
-
-    }
 
 
     private void questionShowMethod(String mainCategory, String subCategory) {

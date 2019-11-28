@@ -14,7 +14,7 @@ import com.worldtechpoints.bcsknowledge.R;
 
 public class ShortQuestionFragment extends Fragment {
 
-    private Button english,math;
+    Button englishButton,mathButton,recentNews,bangla,computer,rules,mantelSkill,bDKnowledge,interKnowedge,geographical,generalScience;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,25 +23,86 @@ public class ShortQuestionFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_short_question, container, false);
 
-        english = root.findViewById(R.id.english_id);
-        math = root.findViewById(R.id.math_id);
+        englishButton = root.findViewById(R.id.questionEnglish_id);
+        mathButton = root.findViewById(R.id.questionMath_id);
+        bangla = root.findViewById(R.id.questionBangla_id);
 
-        english.setOnClickListener(new View.OnClickListener() {
+        computer = root.findViewById(R.id.questionComputer_id);
+        rules = root.findViewById(R.id.questionRules_id);
+        mantelSkill = root.findViewById(R.id.questionMantelSkill_id);
+        bDKnowledge = root.findViewById(R.id.questionBDKnowledge_id);
+        interKnowedge = root.findViewById(R.id.questionI_Knowledge_id);
+        geographical = root.findViewById(R.id.questionGeographical_id);
+        generalScience = root.findViewById(R.id.questionGeneralScience_id);
+        recentNews = root.findViewById(R.id.questionRecentNews_id);
+
+
+
+        englishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                sent("English");
-
+                sent(getString(R.string.english));
+            }
+        });
+        bangla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.bangla));
+            }
+        });
+        computer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.computer));
+            }
+        });
+        rules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.rules));
+            }
+        });
+        mantelSkill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.mantelSkill));
+            }
+        });
+        bDKnowledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.bDKnowledge));
+            }
+        });
+        interKnowedge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.internationalKnowledge));
+            }
+        });
+        geographical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.geographical));
+            }
+        });
+        generalScience.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.generalScience));
             }
         });
 
-
-        math.setOnClickListener(new View.OnClickListener() {
+        mathButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                sent("Math");
-
+                sent(getString(R.string.math));
+            }
+        });
+        recentNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sent(getString(R.string.recentNews));
             }
         });
 

@@ -64,6 +64,8 @@ public class JobSubmitActivity extends AppCompatActivity {
 
     private ProgressDialog dialog;
 
+    private static int OPEN_DOCUMENT_CODE = 100;
+
     private String jobTile;
     private  String jobShortDescription;
     private String jobBoardDescription;
@@ -103,8 +105,16 @@ public class JobSubmitActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+/*
+
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                startActivityForResult(intent, OPEN_DOCUMENT_CODE);
+*/
+
                 CropImage.activity()
-                        .setMinCropResultSize(720,720)
+                        .setMinCropResultSize(1080,1920)
                         .setAspectRatio(1,1)
                         .setAutoZoomEnabled(true)
                         .setGuidelines(CropImageView.Guidelines.ON)
@@ -197,7 +207,6 @@ public class JobSubmitActivity extends AppCompatActivity {
                                 public void onFailure(@NonNull Exception exception) {
 
                                     dialog.dismiss();
-                                    Toast.makeText(JobSubmitActivity.this, "Hopppposss", Toast.LENGTH_SHORT).show();
                                     // Handle any errors
                                 }
                             });
@@ -216,9 +225,6 @@ public class JobSubmitActivity extends AppCompatActivity {
 
                     }
                 });
-
-
-
 
 
             }else {
@@ -286,6 +292,15 @@ public class JobSubmitActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+
+      /*  if (requestCode == OPEN_DOCUMENT_CODE && resultCode == RESULT_OK) {
+            if (data != null) {
+                // this is the image selected by the user
+                imageUri = data.getData();
+                imageView.setImageURI(imageUri);
+            }
+        }*/
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);

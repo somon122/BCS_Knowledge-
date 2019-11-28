@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ddd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mcqTest.QuizShowActivity">
@@ -11,8 +12,8 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/quizToolBar_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffff"
+        android:layout_height="70dp"
+        android:background="@drawable/quiz_button"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +32,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quizToolBar_id" />
 
+    <TextView
+        android:id="@+id/lineShadow2"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintTop_toBottomOf="@+id/quizShowSpinner_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/showQuizQuestion_id"
@@ -43,10 +55,23 @@
         android:inputType="textMultiLine"
         android:padding="5dp"
         android:textSize="20sp"
+        android:textColor="#000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizShowSpinner_id" />
+        app:layout_constraintTop_toBottomOf="@+id/lineShadow2" />
+
+
+    <TextView
+        android:id="@+id/lineShadow"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_shadow"
+        app:layout_constraintTop_toBottomOf="@+id/showQuizQuestion_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <RadioGroup
@@ -55,48 +80,50 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/showQuizQuestion_id"
+        app:layout_constraintTop_toBottomOf="@+id/lineShadow"
 
         >
 
         <RadioButton
             android:id="@+id/quizOption1"
-            android:hint="Data is empty"
-            android:paddingStart="5dp"
-            android:background="#EBDDDD"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/button_shadow"
+            android:hint="Data is empty"
+            android:paddingStart="5dp"
             tools:ignore="RtlSymmetry" />
 
         <RadioButton
             android:id="@+id/quizOption2"
             android:hint="Data is empty"
             android:paddingStart="5dp"
+            android:background="@drawable/button_shadow"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             tools:ignore="RtlSymmetry" />
          <RadioButton
              android:id="@+id/quizOption3"
              android:hint="Data is empty"
              android:paddingStart="5dp"
-             android:background="#EBDDDD"
+             android:background="@drawable/button_shadow"
              android:layout_marginStart="30dp"
              android:layout_marginEnd="20dp"
              android:layout_width="match_parent"
-             android:layout_height="50dp"
+             android:layout_height="60dp"
              tools:ignore="RtlSymmetry" />
          <RadioButton
              android:id="@+id/quizOption4"
              android:hint="Data is empty"
              android:paddingStart="5dp"
+             android:background="@drawable/button_shadow"
              android:layout_marginStart="30dp"
              android:layout_marginEnd="20dp"
              android:layout_width="match_parent"
-             android:layout_height="50dp"
+             android:layout_height="60dp"
              tools:ignore="RtlSymmetry" />
 
 
@@ -106,11 +133,13 @@
     <Button
         android:id="@+id/quizShowSubmit_id"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="100dp"
         android:text="Submit"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

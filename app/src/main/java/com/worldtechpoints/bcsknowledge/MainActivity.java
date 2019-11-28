@@ -1,11 +1,19 @@
 package com.worldtechpoints.bcsknowledge;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -23,6 +31,10 @@ import com.worldtechpoints.bcsknowledge.mcqTest.QuizShowActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
 
         controlClass = new ControlClass(this);
         question = controlClass.getScore();
+
+
+
 
         Bundle bundle = getIntent().getExtras();
 
@@ -118,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.nav_home){
            maintainFragment(homeFragment);
            bottomNav.setSelectedItemId(R.id.home_id);
-            navigationView.setCheckedItem(R.id.nav_home);
             setTitle("Job Search");
             controlClass.Delete();
         }
@@ -126,14 +140,12 @@ public class MainActivity extends AppCompatActivity {
 
            maintainFragment(shortQuestionFragment);
            bottomNav.setSelectedItemId(R.id.question_id);
-            navigationView.setCheckedItem(R.id.nav_shortQuestion);
             setTitle("Question");
             controlClass.setStoreScore(1);
         }
         if (id == R.id.nav_mcqTest){
            maintainFragment(mcqTestFragment);
            bottomNav.setSelectedItemId(R.id.quiz_id);
-            navigationView.setCheckedItem(R.id.nav_mcqTest);
             setTitle("MCQ Quiz");
             controlClass.setStoreScore(2);
 
@@ -145,7 +157,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if (id == R.id.nev_adminPanel_id){
 
-          startActivity(new Intent(MainActivity.this,SubmitCategoryActivity.class));
+            String password = "122bcs#";
+            adminPanel(password);
 
         }
         if (id == R.id.nav_share){
@@ -153,6 +166,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
         if (id == R.id.nav_rate_us){
+
+            Toast.makeText(MainActivity.this, "Coming soon....", Toast.LENGTH_SHORT).show();
+
+        }
+        if (id == R.id.nav_help){
 
             Toast.makeText(MainActivity.this, "Coming soon....", Toast.LENGTH_SHORT).show();
 
@@ -177,12 +195,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.home_id:
                         maintainFragment(homeFragment);
                         controlClass.Delete();
+                        setTitle("Job Search");
+                        navigationView.setCheckedItem(R.id.nav_home);
 
                         return true;
 
                     case R.id.question_id:
                         maintainFragment(shortQuestionFragment);
                         controlClass.setStoreScore(1);
+                        setTitle("Question");
+                        navigationView.setCheckedItem(R.id.nav_shortQuestion);
 
                         return true;
 
@@ -190,7 +212,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.quiz_id:
 
                      maintainFragment(mcqTestFragment);
+                        setTitle("MCQ Quiz");
                         controlClass.setStoreScore(2);
+                        navigationView.setCheckedItem(R.id.nav_mcqTest);
                         return true;
 
                     default:
@@ -199,6 +223,59 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    private void adminPanel(final String password) {
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        View view1 = getLayoutInflater().inflate(R.layout.admin_control,null);
+
+
+        final EditText passwordET = view1.findViewById(R.id.adminCheckPassword_id);
+        Button submit = view1.findViewById(R.id.adminSubmit_id);
+
+
+        builder.setTitle("Admin Panel");
+        builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.dismiss();
+            }
+        });
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String mPassword = passwordET.getText().toString();
+
+                if (mPassword.isEmpty()){
+
+                    passwordET.setError("Please enter password");
+
+                }else {
+
+                    if (mPassword.equals(password)){
+
+                        Toast.makeText(MainActivity.this, "Password is matches", Toast.LENGTH_SHORT).show();
+                       startActivity(new Intent(MainActivity.this,SubmitCategoryActivity.class));
+
+
+                    }else {
+
+                        Toast.makeText(MainActivity.this, "Password is not matches", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+
+        builder.setView(view1);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
 
     }
 
@@ -253,6 +330,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId();
@@ -270,6 +354,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+            finishAffinity();
         } else {
             super.onBackPressed();
         }

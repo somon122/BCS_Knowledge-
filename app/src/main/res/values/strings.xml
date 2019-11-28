@@ -7,6 +7,22 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Log_out</string>
 
+
+    <string name="bangla">বাংলা ভাষা ও সাহিত্য</string>
+    <string name="english">ইংরেজি ভাষা ও সাহিত্য</string>
+    <string name="bDKnowledge">সাধারণ জ্ঞান (বাংলাদেশ)</string>
+    <string name="internationalKnowledge">সাধারণ জ্ঞান (আন্তর্জাতিক)</string>
+    <string name="geographical">ভুগল (বাংলাদেশ ও বিশ্ব)</string>
+    <string name="generalScience">সাধারণ বিজ্ঞান</string>
+    <string name="computer">কম্পিউটার ও তথ্য প্রযুক্তি</string>
+    <string name="math">গাণিতিক যুক্তি</string>
+    <string name="mantelSkill">মানসিক দক্ষতা</string>
+    <string name="rules"> নৈতিকতা, মূল্যবোধ, সুশাসন</string>
+    <string name="recentNews">সাম্প্রতিক বিষয়</string>
+    <string name="modelTest">মডেল টেস্ট</string>
+
+
+
     <string name="menu_home">Home</string>
     <string name="menu_shortQuestion">Short Question</string>
     <string name="menu_mcqTest">MCQ Test</string>
@@ -17,7 +33,9 @@
     <string name="menu_about_me">About me</string>
 
     <string name="menu_send">Rate us</string>
+    <string name="menu_help">Help</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="math1">Math</string>
 </resources>

@@ -21,8 +21,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.worldtechpoints.bcsknowledge.Category_Content;
 import com.worldtechpoints.bcsknowledge.MainActivity;
 import com.worldtechpoints.bcsknowledge.R;
+import com.worldtechpoints.bcsknowledge.mcqTest.QuizSubmitActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -55,6 +57,8 @@ public class SubmitQuestionActivity extends AppCompatActivity {
     private List<String> subCategoryValue;
     private List<String>mainCatagoryValue;
 
+    private Category_Content category_content;
+
 
     private FirebaseFirestore mFirestore;
 
@@ -80,6 +84,7 @@ public class SubmitQuestionActivity extends AppCompatActivity {
 
         mainSpinner = findViewById(R.id.mainQuestionCategory_id);
         subSpinner = findViewById(R.id.subQuestionCategory_id);
+        category_content = new Category_Content();
 
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,10 +97,17 @@ public class SubmitQuestionActivity extends AppCompatActivity {
 
         mainCatagoryValue = new ArrayList<String>();
 
-        mainCatagoryValue.add("English");
-        mainCatagoryValue.add("Math");
-        mainCatagoryValue.add("Science");
-        mainCatagoryValue.add("General Knowledge");
+        mainCatagoryValue.add(getString(R.string.bangla));
+        mainCatagoryValue.add(getString(R.string.english));
+        mainCatagoryValue.add(getString(R.string.math));
+        mainCatagoryValue.add(getString(R.string.generalScience));
+        mainCatagoryValue.add(getString(R.string.mantelSkill));
+        mainCatagoryValue.add(getString(R.string.computer));
+        mainCatagoryValue.add(getString(R.string.rules));
+        mainCatagoryValue.add(getString(R.string.geographical));
+        mainCatagoryValue.add(getString(R.string.bDKnowledge));
+        mainCatagoryValue.add(getString(R.string.internationalKnowledge));
+        mainCatagoryValue.add(getString(R.string.recentNews));
 
 
         ArrayAdapter<String> mainDataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mainCatagoryValue);
@@ -179,27 +191,54 @@ public class SubmitQuestionActivity extends AppCompatActivity {
 
     private void subCategoryMethod() {
 
-        if (mainCategory.equals("Math")) {
+        if (mainCategory.equals(getString(R.string.math))) {
 
-            subCategoryValue = new ArrayList<String>();
-            subCategoryValue.add("pules");
-            subCategoryValue.add("minus");
-            subCategoryValue.add("divide");
-            subCategoryValue.add("multi math");
+            subCategoryValue = category_content.math_Sub_Category();
 
-            Toast.makeText(SubmitQuestionActivity.this, "English is called", Toast.LENGTH_SHORT).show();
 
-        } else if (mainCategory.equals("English")) {
+        } else if (mainCategory.equals(getString(R.string.english))) {
 
-            subCategoryValue = new ArrayList<String>();
-            subCategoryValue.add("Tense");
-            subCategoryValue.add("Narration");
-            subCategoryValue.add("Voice");
-            subCategoryValue.add("Vocabulary");
+            subCategoryValue = category_content.english_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.geographical))) {
+
+            subCategoryValue = category_content.geographical_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.mantelSkill))) {
+
+            subCategoryValue = category_content.mantalSkillSub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.bangla))) {
+
+            subCategoryValue = category_content.bangla_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.generalScience))) {
+
+            subCategoryValue = category_content.g_science_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.bDKnowledge))) {
+
+            subCategoryValue = category_content.bdGK_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.internationalKnowledge))) {
+
+            subCategoryValue = category_content.i_GK_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.rules))) {
+
+            subCategoryValue = category_content.n_m_s_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.computer))) {
+
+            subCategoryValue = category_content.computer_Sub_Category();
+
+        }else if (mainCategory.equals(getString(R.string.recentNews))) {
+
+            subCategoryValue = category_content.recentNews_Sub_Category();
+
         }else {
             Toast.makeText(SubmitQuestionActivity.this, "Is not massing", Toast.LENGTH_SHORT).show();
         }
-
 
 
         ArrayAdapter<String> subDataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, subCategoryValue);

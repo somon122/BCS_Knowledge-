@@ -1,54 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ddd"
     tools:context=".mcqTest.MCQTestFragment"
     >
 
-    <Button
-        android:id="@+id/quizEnglish_id"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/splash_screen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="32dp"
-        android:text="English"
-        android:background="@drawable/button_design"
+        android:paddingBottom="8dp"
+        android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/quizBangla_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/bangla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+ <Button
+        android:id="@+id/quizEnglish_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/english"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@id/quizBangla_id" />
 
     <Button
         android:id="@+id/quizMath_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button_design"
-        android:text="Math"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/math"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/quizEnglish_id" />
 
-
- <Button
-        android:id="@+id/modelTest_id"
+     <Button
+        android:id="@+id/quizComputer_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button_design"
-        android:text="Special Model Test"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/computer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/quizMath_id" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+ <Button
+        android:id="@+id/quizRules_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/rules"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizComputer_id" />
+ <Button
+        android:id="@+id/quizMantelSkill_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/mantelSkill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizRules_id" />
+ <Button
+        android:id="@+id/quizBDKnowledge_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/bDKnowledge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizMantelSkill_id" />
+ <Button
+        android:id="@+id/quizI_Knowledge_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/internationalKnowledge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizBDKnowledge_id" />
+ <Button
+        android:id="@+id/quizGeographical_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/geographical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizI_Knowledge_id" />
+
+        <Button
+        android:id="@+id/quizGeneralScience_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/generalScience"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizGeographical_id" />
+
+
+  <Button
+        android:id="@+id/quizRecentNews_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="@string/recentNews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizGeneralScience_id" />
+
+    <Button
+        android:id="@+id/modelTest_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:background="@drawable/button_shadow"
+        android:text="Special Model Test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizRecentNews_id" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FF5722"
+    android:background="@drawable/splash_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OpeningScreen.OpenFragment">
@@ -15,18 +15,18 @@
         android:src="@drawable/bcs_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.106" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:backgroundTint="#0988EC"
-        android:progressBackgroundTint="#1DB4F8"
+        android:backgroundTint="#FF5722"
+        android:progressBackgroundTint="#9C27B0"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_margin="50dp"
         android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
